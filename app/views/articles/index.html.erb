@@ -1,0 +1,27 @@
+<h1>Listing articles</h1>
+
+<section id="articles-block">
+
+  <table>
+    <tr>
+      <th>title</th>
+      <th>text</th>
+      <th></th>
+    </tr>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.title %></td>
+        <td><%= article.text %></td>
+        <td><%= link_to 'Show', article_path(article) %></td>
+        <td><%= link_to 'Edit', edit_article_path(article) %></td>
+        <td><%= link_to 'Destroy', article_path(article),
+          method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- ▼articleの中身確認用 -->
+        <!-- <td><%= article.inspect %></td> -->
+      </tr>
+    <% end %>
+  </table>
+
+  <%= link_to 'New article', new_article_path %>
+
+</section>

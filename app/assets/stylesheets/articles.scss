@@ -1,3 +1,92 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'variable';
+
+// 変数定義
+
+//   font-size
+
+
+
+// index
+.article-block
+{
+    .article-block__paragraph
+    {
+        margin-top: $space__low;
+    }
+}
+
+
+
+// show
+.articles-wrap
+{
+    width: 560px;
+    margin: auto;
+}
+
+.article__title
+{
+    font-size: 32px;
+    line-height: 1.5;
+}
+
+.article__body
+{
+    margin-top: $space__high;
+    .article__paragraph
+    {
+        font-size: 18px;
+        line-height: 2;
+    }
+}
+
+.comments-wrap
+{
+    margin-top: $space__separate;
+}
+
+.comment-unit + .comment-unit
+{
+    margin-top: $space__low;
+}
+
+.comment-unit
+{
+    padding: $space__near;
+
+    border-radius: 2px;
+    background-color: $color__com__gray;
+
+    .comment-unit__body
+    {
+        margin-top: $space__near;
+    }
+    .comment-unit__delete
+    {
+        margin-top: $space__near;
+
+        text-align: right;
+    }
+}
+
+.comment-form-wrap{
+  margin-top: $space__high;
+}
+
+.comment-form{
+  margin-top: $space__touch;
+  background-color: $color__com__gray;
+  padding: $space__near;
+
+  .comment-form-item + .comment-form-item{
+    margin-top: $space__near;
+  }
+
+  .comment-form-item__submit{
+    text-align: right;
+  }
+}

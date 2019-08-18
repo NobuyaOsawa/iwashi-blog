@@ -1,22 +1,23 @@
-<div class="article-wrap">
+<div class="articles-wrap">
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+  <h1 class="article__title"><%= @article.title %></h1>
+  <div class="article__body">
+    <p class="article__paragraph">
+      <%= @article.text %>
+    </p>
+  </div>
 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
+  <div class="comments-wrap">
+    <%= render @article.comments %>
+  </div>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
+  <div class="comment-form-wrap">
+    <strong class="com__text-strong">コメントを投稿</strong>
+    <%= render "comments/form" %>
+  </div>
 
-<h2>Add a comment:</h2>
-<%= render "comments/form" %>
-
-<%= link_to 'Back', articles_path %>
-| <%= link_to 'Edit', edit_article_path(@article) %>
+  <%= link_to 'Back', articles_path %>
+  |
+  <%= link_to 'Edit', edit_article_path(@article) %>
 
 </div>

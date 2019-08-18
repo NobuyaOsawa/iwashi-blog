@@ -10,6 +10,25 @@
   </head>
 
   <body>
+    <header class="header">
+      <div class="header-nav">
+        <div class="header-nav__logo"><a href="/articles">iwashi-blog</a></div>
+        <a href="/articles/new" class="btn btn__header">投稿</a>
+      </div>
+    </header>
+
+    <div class="container">
     <%= yield %>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-nav">
+        <div class="powered-by">powered by <a href="https://twitter.com/iwashi0830">@iwashi0830</a></div>
+        <ul class="footer-nav__menu">
+          <li><a href="/articles">記事一覧</a></li>
+          <li><a href="/articles/new">投稿</a></li>
+        </ul>
+      </div>
+    </footer>
   </body>
 </html>

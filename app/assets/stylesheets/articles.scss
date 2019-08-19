@@ -10,7 +10,7 @@
 
 
 
-// index
+// index ****************************************
 .article-block
 {
     .article-block__paragraph
@@ -20,8 +20,7 @@
 }
 
 
-
-// show
+// show ****************************************
 .articles-wrap
 {
     width: 560px;
@@ -32,6 +31,10 @@
 {
     font-size: 32px;
     line-height: 1.5;
+}
+
+.article__edit{
+  text-align: right;
 }
 
 .article__body
@@ -89,4 +92,11 @@
   .comment-form-item__submit{
     text-align: right;
   }
+}
+
+
+// new ****************************************
+.new-article-wrap{
+  width: 560px;
+  margin: auto;
 }

@@ -13,9 +13,21 @@
 // index ****************************************
 .article-block
 {
+    .article-block__headline{
+      width: 100%;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
     .article-block__paragraph
     {
         margin-top: $space__low;
+        width: 100%;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
     }
 }
 

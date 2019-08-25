@@ -17,17 +17,27 @@
 
 @import 'variable';
 
+a{
+  text-decoration: none;
+}
+
 // 共通UI
 .com__text-headline
 {
     font-size: $font-size__com__title;
     line-height: 1.5;
+    color: $color__com__text-main;
 }
 
 .com__text-paragraph
 {
     font-size: $font-size__com__default;
     line-height: 1.8;
+    color: $color__com__text-main;
+}
+
+.com__text-anchor{
+  color: $color__com__text-anchor;
 }
 
 .com__text-strong
@@ -37,11 +47,32 @@
     line-height: 1.5;
 }
 
+.com__text-sub
+{
+    font-size: $font-size__com__default;
+    line-height: 1.5;
+
+    color: $color__com__text-sub;
+}
+
 .com__text-attention
 {
     font-size: $font-size__com__default;
 
     color: $color__com__attention;
+}
+
+.com__added-icon-text
+{
+    display: flex;
+    align-items: center;
+}
+
+.com__icon-mid
+{
+    width: 16px;
+    height: 16px;
+    margin-right: $space__touch;
 }
 
 .com__comment-form
@@ -51,7 +82,7 @@
 
     background-color: $color__com__gray;
 
-    .com__comment-form-item + .com__comment-form-item
+    * + .com__comment-form-item
     {
         margin-top: $space__near;
     }
@@ -93,7 +124,9 @@
 
     padding: 8px 24px;
 
-    border-radius: 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
 }
 
 .btn__header
@@ -103,14 +136,46 @@
     background: none;
 }
 
+.btn__primary
+{
+    color: $color__com__white;
+    background: $color__brand__main;
+
+    * + & {
+      margin-left: $space__near;
+    }
+}
+
+#error_explanation{
+  background-color: $color__com__attention-background;
+  padding: $space__near;
+
+  // いつかちゃんとclassを当てたい
+  &  h2{
+    font-size: $font-size__com__default;
+    font-weight: bold;
+    line-height: 1.5;
+    color: $color__com__text-main;
+  }
+
+  &  ul{
+    margin-top: $space__touch;
+  }
+
+  & li{
+    list-style-position: inside;
+    line-height: 1.5;
+  }
+}
 
 body
 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Yu Gothic', YuGothic, Verdana, Meiryo, 'M+ 1p', sans-serif;
+
     display: flex;
     flex-direction: column;
 
     min-height: 100vh;
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
 }
 
 .header
@@ -168,7 +233,7 @@ body
     }
     .powered-by
     {
-        color: $color__com__note;
+        color: $color__com__text-sub;
     }
     .footer-nav__menu
     {
@@ -188,34 +253,4 @@ body
 {
     width: 800px;
     margin: $space__mid auto $space__separate;
-}
-
-.article-list-all
-{
-    width: 560px;
-    margin: auto;
-
-    .article-block
-    {
-        padding: $space__near;
-    }
-
-    .article-block + .article-block
-    {
-        margin-top: $space__low;
-        padding-top: 0;
-    }
-
-    .article-block + .article-block::before
-    {
-        display: block;
-
-        height: 1px;
-        margin-bottom: $space__mid;
-        padding-top: 0;
-
-        content: '';
-
-        background: $color__com__border;;
-    }
 }

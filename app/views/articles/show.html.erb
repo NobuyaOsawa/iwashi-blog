@@ -1,9 +1,13 @@
 <div class="articles-wrap">
 
   <h1 class="article__title"><%= @article.title %></h1>
-  <div class="article__edit">
-    <%= link_to '編集', edit_article_path(@article) %>
+  <div class="article__info">
+    <div class="com__added-icon-text com__text-sub article__date"><%= image_tag "icon_date.png", class: 'com__icon-mid' %><%= @article.updated_at.strftime("%Y/%m/%d") %></div>
+    <div class="com__added-icon-text com__text-sub article__comments-num"><%= image_tag "icon_comments.png", class: 'com__icon-mid' %><%= @article.comments.length %></div>
+    <%= link_to '編集', edit_article_path(@article), class: 'article__edit com__text-anchor' %>
+
   </div>
+
 
   <div class="article__body">
     <p class="article__paragraph">
@@ -13,8 +17,8 @@
 
   <div class="article__nav">
     <%# もし前後の記事があればリンクを表示 %>
-    <span class="article__nav-item"><%= link_to '<前の記事', article_path(@previousArticle) if @previousArticle %></span>
-    <span class="article__nav-item"><%= link_to '次の記事>', article_path(@nextArticle) if @nextArticle %></span>
+    <span class="article__nav-item"><%= link_to '<前の記事', article_path(@previousArticle), class:'com__text-anchor' if @previousArticle %></span>
+    <span class="article__nav-item"><%= link_to '次の記事>', article_path(@nextArticle), class:'com__text-anchor' if @nextArticle %></span>
   </div>
 
   <div class="comments-wrap">

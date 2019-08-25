@@ -11,43 +11,77 @@
 
 
 // index ****************************************
-.article-block
+.article-list-all
 {
-    .article-block__headline
+    width: 560px;
+    margin: auto;
+
+    .article-block
     {
-        display: -webkit-box;
-        overflow: hidden;
-        -webkit-box-orient: vertical;
+        padding: $space__mid $space__near;
 
-        width: 100%;
+        border-bottom: solid $color__com__border 1px;
 
-        -webkit-line-clamp: 2;
-    }
-    .article-block__paragraph
-    {
-        display: -webkit-box;
-        overflow: hidden;
-        -webkit-box-orient: vertical;
+        &:hover
+        {
+            background-color: $color__com__current;
+        }
 
-        width: 100%;
-        margin-top: $space__low;
+        .article-block__headline
+        {
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
 
-        -webkit-line-clamp: 3;
+            width: 100%;
+
+            -webkit-line-clamp: 2;
+        }
+        .article-block__paragraph
+        {
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+
+            width: 100%;
+            margin-top: $space__low;
+
+            -webkit-line-clamp: 3;
+        }
+        .article-block__meta-info
+        {
+            display: flex;
+
+            margin-top: $space__near;
+            & > :nth-child(n+2)
+            {
+                margin-left: $space__near;
+            }
+        }
     }
 }
 
-.pagination{
-
-  text-align: center;
-  margin-top: $space__low;
-  display: flex;
-  justify-content:center;
 
 
-  & > *{
-    padding: 0 $space__touch;
-    display: block;
-  }
+
+
+
+.pagination
+{
+    display: flex;
+    justify-content: center;
+
+    margin-top: $space__low;
+
+    text-align: center;
+
+
+    & > *
+    {
+        display: block;
+
+        padding: 0 $space__touch;
+    }
 }
 
 
@@ -62,6 +96,24 @@
 {
     font-size: 32px;
     line-height: 1.5;
+}
+
+.article__info
+{
+    display: flex;
+    align-items: center;
+
+    margin-top: $space__near;
+
+    & > :nth-child(n+2)
+    {
+        margin-left: $space__low;
+    }
+
+    & > :last-child
+    {
+        margin-left: auto;
+    }
 }
 
 .article__edit
@@ -82,8 +134,9 @@
 .article__nav
 {
     display: flex;
-    margin-top: $space__low;
     justify-content: flex-end;
+
+    margin-top: $space__low;
 
     & > :first-child
     {

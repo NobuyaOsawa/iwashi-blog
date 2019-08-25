@@ -25,7 +25,8 @@
   </div>
 
   <div class="com__comment-form-item com__comment-form-item__submit">
-    <%= form.submit "送信", class: "btn" %>
+    <%= link_to 'キャンセル', articles_path, data: { confirm: '力量不足により一時保存機能は実装されていないため、入力中のテキストは保存されません。よろしいですか？'}, class:'com__text-anchor' %>
+    <%= form.submit "送信", class: "btn btn__primary" %>
   </div>
 
 <% end %>

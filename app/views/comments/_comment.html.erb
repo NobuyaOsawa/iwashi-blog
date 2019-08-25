@@ -1,5 +1,6 @@
 <div class="comment-unit">
   <div class="com__text-strong comment-unit__commenter"><%= comment.commenter %></div>
+  <div class="com__text-sub comment-unit__date"><%= comment.updated_at.strftime("%Y/%m/%d") %></div>
   <div class="com__text-paragraph comment-unit__body"><%= comment.body %></div>
   <div class="comment-unit__delete">
     <%= link_to '削除', [comment.article, comment],

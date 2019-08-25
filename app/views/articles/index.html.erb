@@ -1,10 +1,12 @@
 <div class="article-list-all">
 
-    <% @articles.each do |article| %>
+
+    <% @hoge.each do |article| %>
       <section class="article-block">
         <h2 class="com__text-headline article-block__headline"><%= link_to "#{article.title}", article_path(article) %></h2>
         <div class="com__text-paragraph article-block__paragraph"><%= article.text %></div>
       </section>
     <% end %>
+    <%= will_paginate @hoge, :previous_label => ' &lt 前の5件', :next_label => '次の5件 &gt' %>
 
   </div>

@@ -1,11 +1,16 @@
 class ArticlesController < ApplicationController
   def index
     # Articleモデルを経由して、DBのarticlesテーブルの中身を全て@articlesに代入？ってこと？
-    @articles = Article.all
+    # @articles = Article.all
+    # ページネーション用インスタンス変数
+    @hoge = Article.paginate(page: params[:page], per_page: 5)
   end
 
   def show
     @article = Article.find(params[:id])
+    # 前後の記事
+    @previousArticle = @article.previous
+    @nextArticle = @article.next
   end
 
   def new

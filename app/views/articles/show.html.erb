@@ -11,6 +11,12 @@
     </p>
   </div>
 
+  <div class="article__nav">
+    <%# もし前後の記事があればリンクを表示 %>
+    <span class="article__nav-item"><%= link_to '<前の記事', article_path(@previousArticle) if @previousArticle %></span>
+    <span class="article__nav-item"><%= link_to '次の記事>', article_path(@nextArticle) if @nextArticle %></span>
+  </div>
+
   <div class="comments-wrap">
     <%= render @article.comments %>
   </div>

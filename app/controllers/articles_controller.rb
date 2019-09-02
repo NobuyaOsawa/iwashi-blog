@@ -3,7 +3,11 @@ class ArticlesController < ApplicationController
     # Articleモデルを経由して、DBのarticlesテーブルの中身を全て@articlesに代入？ってこと？
     # @articles = Article.all
     # ページネーション用インスタンス変数
-    @hoge = Article.paginate(page: params[:page], per_page: 5)
+    @articleList = Article.paginate(page: params[:page], per_page: 5)
+
+    if params[:tag_name]
+      @articleList = @articleList.tagged_with("#{params[:tag_name]}")
+    end
   end
 
   def show
@@ -52,6 +56,6 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :text, :image)
+    params.require(:article).permit(:title, :text, :image, :tag_list)
   end
 end

@@ -32,6 +32,13 @@
     <%= form.text_area :text, class: "com__text-area" %>
   </div>
 
+  <div class="com__text-form-item">
+    <div class="com__text-paragraph com__form-item__label">
+      タグ
+    </div>
+    <%= form.text_field :tag_list, value: @article.tag_list.join(','), class: "com__text-area" %>
+  </div>
+
   <div class="com__text-form-item com__text-form-item__submit">
     <%= link_to 'キャンセル', articles_path, data: { confirm: '力量不足により一時保存機能は実装されていないため、入力中のテキストは保存されません。よろしいですか？'}, class:'com__text-anchor' %>
     <%= form.submit "送信", class: "btn btn__primary" %>

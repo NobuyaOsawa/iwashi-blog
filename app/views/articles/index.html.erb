@@ -1,13 +1,18 @@
 <div class="article-list-all">
 
 
-    <% @hoge.each do |article| %>
+    <% @articleList.each do |article| %>
 
       <section class="article-block">
         <%= link_to(article_path(article), class:'article-block-wrap') do %>
         <%= image_tag article.image.url, class: 'article-block__main-image' if article.image.url %>
         <h2 class="com__text-headline article-block__headline"><%= "#{article.title}" %></h2>
         <div class="com__text-paragraph article-block__paragraph"><%= article.text %></div>
+
+        <% article.tag_list.each do |tag| %>
+          <span><%= link_to tag, articles_path(tag_name: tag) %></span>
+        <% end %>
+
         <div class="com__text-paragraph article-block__meta-info">
           <div class="com__added-icon-text com__text-sub article-block__date"><%= image_tag "icon_date.png", class: 'com__icon-mid' %><%= article.updated_at.strftime("%Y/%m/%d") %></div>
           <div class="com__added-icon-text com__text-sub article-block__comments-num"><%= image_tag "icon_comments.png", class: 'com__icon-mid' %><%= article.comments.length %></div>
@@ -16,6 +21,6 @@
       </section>
 
     <% end %>
-    <%= will_paginate @hoge, :previous_label => ' &lt 前の5件', :next_label => '次の5件 &gt' %>
+    <%= will_paginate @articleList, :previous_label => ' &lt 前の5件', :next_label => '次の5件 &gt' %>
 
   </div>

@@ -1,5 +1,7 @@
 <div class="articles-wrap">
 
+  <%= image_tag @article.image.url, class: 'article__main-image' if @article.image.url %>
+
   <h1 class="article__title"><%= @article.title %></h1>
   <div class="article__info">
     <div class="com__added-icon-text com__text-sub article__date"><%= image_tag "icon_date.png", class: 'com__icon-mid' %><%= @article.updated_at.strftime("%Y/%m/%d") %></div>

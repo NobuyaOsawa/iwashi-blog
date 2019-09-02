@@ -27,6 +27,14 @@
             background-color: $color__com__current;
         }
 
+        .article-block__main-image
+        {
+            width: 100%;
+            height: 160px;
+
+            object-fit: cover;
+        }
+
         .article-block__headline
         {
             display: -webkit-box;
@@ -37,6 +45,12 @@
 
             -webkit-line-clamp: 2;
         }
+
+        * + .article-block__headline
+        {
+            margin-top: $space__low;
+        }
+
         .article-block__paragraph
         {
             display: -webkit-box;
@@ -60,11 +74,6 @@
         }
     }
 }
-
-
-
-
-
 
 .pagination
 {
@@ -92,10 +101,19 @@
     margin: auto;
 }
 
+.article__main-image
+{
+    width: 100%;
+}
+
 .article__title
 {
     font-size: 32px;
     line-height: 1.5;
+    * + &
+    {
+        margin-top: $space__mid;
+    }
 }
 
 .article__info

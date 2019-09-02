@@ -1,19 +1,19 @@
-<%= form_with(model: [ @article, @article.comments.build ], local: true, class: "com__comment-form") do |form| %>
-  <div class="com__comment-form-item">
-    <div class="com__text-paragraph comment-form-item__label">
+<%= form_with(model: [ @article, @article.comments.build ], local: true, class: "com__text-form") do |form| %>
+  <div class="com__text-form-item">
+    <div class="com__text-paragraph com__form-item__label">
       名前
     </div>
     <%= form.text_field :commenter, class: "com__text-field" %>
   </div>
 
-  <div class="com__comment-form-item">
-    <div class="com__text-paragraph comment-form-item__label">
+  <div class="com__text-form-item">
+    <div class="com__text-paragraph com__form-item__label">
       本文
     </div>
     <%= form.text_area :body, class: "com__text-area" %>
   </div>
 
-  <div class="com__comment-form-item com__comment-form-item__submit">
+  <div class="com__text-form-item com__text-form-item__submit">
     <%= form.submit "送信", class: "btn btn__primary" %>
   </div>
 

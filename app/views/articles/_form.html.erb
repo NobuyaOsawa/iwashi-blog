@@ -1,4 +1,4 @@
-<%= form_with model: @article, local: true, class: "com__comment-form" do |form| %>
+<%= form_with model: @article, local: true, class: "com__text-form" do |form| %>
   <% if @article.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@article.errors.count, "error") %> prohibited
@@ -10,21 +10,29 @@
     </ul>
   </div>
   <% end %>
-  <div class="com__comment-form-item">
-    <div class="com__text-paragraph comment-form-item__label">
+
+  <div class="com__text-form-item">
+    <div class="com__text-paragraph com__form-item__label">
+      タイトル画像
+    </div>
+    <%= form.file_field :image, class: "hoge" %>
+  </div>
+
+  <div class="com__text-form-item">
+    <div class="com__text-paragraph com__form-item__label">
       タイトル
     </div>
     <%= form.text_field :title, class: "com__text-field" %>
   </div>
 
-  <div class="com__comment-form-item">
-    <div class="com__text-paragraph comment-form-item__label">
+  <div class="com__text-form-item">
+    <div class="com__text-paragraph com__form-item__label">
       本文
     </div>
     <%= form.text_area :text, class: "com__text-area" %>
   </div>
 
-  <div class="com__comment-form-item com__comment-form-item__submit">
+  <div class="com__text-form-item com__text-form-item__submit">
     <%= link_to 'キャンセル', articles_path, data: { confirm: '力量不足により一時保存機能は実装されていないため、入力中のテキストは保存されません。よろしいですか？'}, class:'com__text-anchor' %>
     <%= form.submit "送信", class: "btn btn__primary" %>
   </div>

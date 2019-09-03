@@ -75,6 +75,15 @@ a{
     margin-right: $space__touch;
 }
 
+.com__tag{
+  font-size: $font-size__com__note;
+  background-color: $color__com__gray;
+  color: $color__com__text-sub;
+  padding: 4px;
+  border-radius: 4px;
+  margin: 4px;
+}
+
 .com__text-form
 {
     margin-top: $space__touch;

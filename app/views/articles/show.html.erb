@@ -3,13 +3,14 @@
   <%= image_tag @article.image.url, class: 'article__main-image' if @article.image.url %>
 
   <h1 class="article__title"><%= @article.title %></h1>
+  <div class="article__tag">
+    <%= render 'articles/tag-list', tag_list: @article.tag_list %>
+  </div>
   <div class="article__info">
     <div class="com__added-icon-text com__text-sub article__date"><%= image_tag "icon_date.png", class: 'com__icon-mid' %><%= @article.updated_at.strftime("%Y/%m/%d") %></div>
     <div class="com__added-icon-text com__text-sub article__comments-num"><%= image_tag "icon_comments.png", class: 'com__icon-mid' %><%= @article.comments.length %></div>
     <%= link_to '編集', edit_article_path(@article), class: 'article__edit com__text-anchor' %>
-
   </div>
-
 
   <div class="article__body">
     <p class="article__paragraph">

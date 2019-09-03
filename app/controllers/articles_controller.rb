@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
     # ページネーション用インスタンス変数
     @articleList = Article.paginate(page: params[:page], per_page: 5)
 
+    # タグ名をクリックした時、そのタグが付与された記事の一覧ページへ遷移
     if params[:tag_name]
       @articleList = @articleList.tagged_with("#{params[:tag_name]}")
     end

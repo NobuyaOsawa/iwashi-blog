@@ -45,6 +45,7 @@ a{
     font-size: $font-size__com__default;
     font-weight: bold;
     line-height: 1.5;
+    color: $color__com__text-main;
 }
 
 .com__text-sub
@@ -196,9 +197,9 @@ body
         align-items: center;
         justify-content: flex-end;
 
-        width: 800px;
+        width: 880px;
         margin: auto;
-        padding: 12px $space__low;
+        padding: 12px 0;
 
         & > :first-child
         {
@@ -256,10 +257,8 @@ body
     }
 }
 
-
-
 .container
 {
-    width: 800px;
+    width: 880px;
     margin: $space__mid auto $space__separate;
 }

@@ -1,5 +1,6 @@
-<div class="article-list-all">
+<div class="wrap-cols">
 
+  <div class="main-col">
 
     <% @articleList.each do |article| %>
 
@@ -18,10 +19,35 @@
           <div class="com__added-icon-text com__text-sub article-block__date"><%= image_tag "icon_date.png", class: 'com__icon-mid' %><%= article.updated_at.strftime("%Y/%m/%d") %></div>
           <div class="com__added-icon-text com__text-sub article-block__comments-num"><%= image_tag "icon_comments.png", class: 'com__icon-mid' %><%= article.comments.length %></div>
         </div>
-        <% end %>
-      </section>
+      <% end %>
+
+    </section>
+
+  <% end %>
+
+  <%= will_paginate @articleList, :previous_label => ' &lt 前の5件', :next_label => '次の5件 &gt' %>
+
+</div>
+
+<div class="right-col">
+  <div class="right-col-block">
+    <div class="right-col-block__title com__text-strong">ランダム記事表示</div>
+    <div class="right-col__contents">
+      <% @randArticleList.each do |article| %>
+
+        <div class="article-block article-block--mini">
+        <%= link_to(article_path(article), class:'article-block-wrap') do %>
+        <div class="com__text-strong article-block__headline"><%= article.title %></div>
+        <div class="com__text-paragraph article-block__meta-info">
+          <div class="com__added-icon-text com__text-sub article-block__date"><%= image_tag "icon_date.png", class: 'com__icon-mid' %><%= article.updated_at.strftime("%Y/%m/%d") %></div>
+          <div class="com__added-icon-text com__text-sub article-block__comments-num"><%= image_tag "icon_comments.png", class: 'com__icon-mid' %><%= article.comments.length %></div>
+        </div>
+      <% end %>
+      </div>
 
     <% end %>
-    <%= will_paginate @articleList, :previous_label => ' &lt 前の5件', :next_label => '次の5件 &gt' %>
-
   </div>
+</div>
+</div>
+
+</div>

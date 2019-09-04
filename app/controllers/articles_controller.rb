@@ -9,6 +9,9 @@ class ArticlesController < ApplicationController
     if params[:tag_name]
       @articleList = @articleList.tagged_with("#{params[:tag_name]}")
     end
+
+    # 記事のランダム表示用
+    @randArticleList = Article.order("RANDOM()").limit(4)
   end
 
   def show

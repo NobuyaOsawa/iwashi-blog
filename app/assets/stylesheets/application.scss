@@ -76,6 +76,11 @@ a{
     margin-right: $space__touch;
 }
 
+.com__tag-wrap{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .com__tag{
   font-size: $font-size__com__note;
   background-color: $color__com__gray;

@@ -8,10 +8,15 @@ class ArticlesController < ApplicationController
     # タグ名をクリックした時、そのタグが付与された記事の一覧ページへ遷移
     if params[:tag_name]
       @articleList = @articleList.tagged_with("#{params[:tag_name]}")
+      @tagName = "#{params[:tag_name]}"
     end
 
     # 記事のランダム表示用
     @randArticleList = Article.order("RANDOM()").limit(4)
+
+    #タグ一覧表示用
+    @tagList = Tags.pluck("name")
+    # render plain: @tagList.inspect
   end
 
   def show

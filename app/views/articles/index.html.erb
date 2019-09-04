@@ -2,52 +2,67 @@
 
   <div class="main-col">
 
-    <% @articleList.each do |article| %>
+    <% if @tagName %>
+      <h2 class="com__text-headline selected-tag-name">#<%= @tagName %>　の記事一覧</h2>
+    <% end %>
 
-      <section class="article-block">
+    <div class="article-block-wrap">
+      <% @articleList.each do |article| %>
 
-        <%= link_to(article_path(article), class:'article-block-wrap') do %>
-        <%= image_tag article.image.url, class: 'article-block__main-image' if article.image.url %>
-        <h2 class="com__text-headline article-block__headline"><%= "#{article.title}" %></h2>
-        <div class="com__text-paragraph article-block__paragraph"><%= article.text %></div>
+        <section class="article-block">
 
-        <div class="article-block__tag">
-          <%= render 'articles/tag-list', tag_list: article.tag_list %>
-        </div>
+          <%= link_to(article_path(article), class:'article-block-wrap') do %>
+          <%= image_tag article.image.url, class: 'article-block__main-image' if article.image.url %>
+          <h2 class="com__text-headline article-block__headline"><%= "#{article.title}" %></h2>
+          <div class="com__text-paragraph article-block__paragraph"><%= article.text %></div>
 
-        <div class="com__text-paragraph article-block__meta-info">
-          <div class="com__added-icon-text com__text-sub article-block__date"><%= image_tag "icon_date.png", class: 'com__icon-mid' %><%= article.updated_at.strftime("%Y/%m/%d") %></div>
-          <div class="com__added-icon-text com__text-sub article-block__comments-num"><%= image_tag "icon_comments.png", class: 'com__icon-mid' %><%= article.comments.length %></div>
-        </div>
-      <% end %>
+          <div class="article-block__tag">
+            <%= render 'articles/tag-list', tag_list: article.tag_list %>
+          </div>
 
-    </section>
+          <div class="com__text-paragraph article-block__meta-info">
+            <div class="com__added-icon-text com__text-sub article-block__date"><%= image_tag "icon_date.png", class: 'com__icon-mid' %><%= article.updated_at.strftime("%Y/%m/%d") %></div>
+            <div class="com__added-icon-text com__text-sub article-block__comments-num"><%= image_tag "icon_comments.png", class: 'com__icon-mid' %><%= article.comments.length %></div>
+          </div>
+        <% end %>
 
-  <% end %>
-
-  <%= will_paginate @articleList, :previous_label => ' &lt 前の5件', :next_label => '次の5件 &gt' %>
-
-</div>
-
-<div class="right-col">
-  <div class="right-col-block">
-    <div class="right-col-block__title com__text-strong">ランダム記事表示</div>
-    <div class="right-col__contents">
-      <% @randArticleList.each do |article| %>
-
-        <div class="article-block article-block--mini">
-        <%= link_to(article_path(article), class:'article-block-wrap') do %>
-        <div class="com__text-strong article-block__headline"><%= article.title %></div>
-        <div class="com__text-paragraph article-block__meta-info">
-          <div class="com__added-icon-text com__text-sub article-block__date"><%= image_tag "icon_date.png", class: 'com__icon-mid' %><%= article.updated_at.strftime("%Y/%m/%d") %></div>
-          <div class="com__added-icon-text com__text-sub article-block__comments-num"><%= image_tag "icon_comments.png", class: 'com__icon-mid' %><%= article.comments.length %></div>
-        </div>
-      <% end %>
-      </div>
+      </section>
 
     <% end %>
   </div>
+  <%# end article-block-wrap %>
+
+    <%= will_paginate @articleList, :previous_label => ' &lt 前の5件', :next_label => '次の5件 &gt' %>
+
+  </div>
+
+  <div class="right-col">
+
+    <div class="right-col-block">
+      <div class="right-col-block__title com__text-strong">ランダム記事表示</div>
+      <div class="right-col__contents">
+        <% @randArticleList.each do |article| %>
+
+          <div class="article-block article-block--mini">
+            <%= link_to(article_path(article), class:'article-block-wrap') do %>
+            <div class="com__text-strong article-block__headline"><%= article.title %></div>
+            <div class="com__text-paragraph article-block__meta-info">
+              <div class="com__added-icon-text com__text-sub article-block__date"><%= image_tag "icon_date.png", class: 'com__icon-mid' %><%= article.updated_at.strftime("%Y/%m/%d") %></div>
+              <div class="com__added-icon-text com__text-sub article-block__comments-num"><%= image_tag "icon_comments.png", class: 'com__icon-mid' %><%= article.comments.length %></div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="right-col-block">
+    <div class="right-col-block__title com__text-strong">タグ一覧</div>
+    <div class="right-col__contents">
+      <%= render 'articles/tag-list', tag_list: @tagList %>
+  </div>
 </div>
+
 </div>
 
 </div>

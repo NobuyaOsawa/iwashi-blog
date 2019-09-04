@@ -20,6 +20,10 @@
     width: 560px;
 }
 
+.selected-tag-name + .article-block-wrap{
+  margin-top: $space__near;
+}
+
 .article-block
 {
     padding: $space__mid $space__near;
@@ -73,8 +77,6 @@
 
     .article-block__tag{
       margin-top: $space__near;
-      display: flex;
-      flex-wrap: wrap;
     }
 
     .article-block__meta-info
@@ -111,6 +113,14 @@
   margin-left: $space__mid;
 }
 
+.right-col-block + .right-col-block{
+  margin-top: $space__mid;
+}
+
+* + .right-col__contents{
+  margin-top: $space__near;
+}
+
 // show ****************************************
 .articles-wrap
 {
@@ -135,8 +145,6 @@
 
 .article__tag{
   margin-top: $space__near;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .article__info
